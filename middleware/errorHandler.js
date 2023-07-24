@@ -14,6 +14,10 @@ const error = async (err,req,res,next) => {
         res.status(400).json({
             msg
         })
+    } else if (error.name === "ProductNotFound"){
+        res.status(404).json({
+            message : "Product Not Found"
+        })
     } else {
     console.log(err);
        res.status(500).json({
