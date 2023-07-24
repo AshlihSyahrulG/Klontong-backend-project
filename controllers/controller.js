@@ -6,7 +6,7 @@ class Controller{
             const data = await Product.findAll()
             res.status(200).json(data)
         } catch (error) {
-            next()
+            next(error)
         }
     }
     
@@ -18,7 +18,20 @@ class Controller{
             })
             res.status(201).json(data)
         } catch (error) {
-            next()
+            next(error)
+        }
+    }
+
+    static async findDetailProduct(req,res,next){
+        const { id } = req.params
+        try {
+            const productDetail = await Product.findByPk(id)
+            if (!productDetail) {
+                throw { name : "ProductNotFound"}
+            }
+            res.status(200).json(productDetail)
+        } catch (error) {
+            next(error)
         }
     }
 }

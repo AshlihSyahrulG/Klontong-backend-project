@@ -10,5 +10,6 @@ router.post('/login', userController.login)
 
 router.get('/', Controller.findAllProduct)
 router.post('/', Controller.addProduct)
+router.get('/:id', Controller.findDetailProduct)
 
 module.exports = router
