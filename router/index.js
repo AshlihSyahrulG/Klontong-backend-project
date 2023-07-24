@@ -9,6 +9,6 @@ router.post('/register', userController.register)
 router.post('/login', userController.login)
 
 router.get('/', Controller.findAllProduct)
-
+router.post('/', Controller.addProduct)
 
 module.exports = router
