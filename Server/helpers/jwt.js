@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const SECRET =hublaa
+const SECRET = "hublaa"
 
 function  generateToken(payload) {
     return jwt.sign(payload,SECRET)
