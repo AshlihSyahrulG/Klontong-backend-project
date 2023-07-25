@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Controller = require('../controllers/controller')
 const userController = require('../controllers/userController')
-// const {authentication} = require('../middleweres/authentication')
+// const {authentication} = require('../middleware/authentication')
 
 
 router.post('/register', userController.register)

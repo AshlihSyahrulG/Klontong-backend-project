@@ -4,7 +4,7 @@ const error = async (err,req,res,next) => {
         res.status(401).json({
            msg: 'Invalid Email / Password'
        })
-   } else if (err.name === "invalidToken" || err.name === "JsonWebTokenError") {
+   } else if (err.name === "InvalidToken" || err.name === "JsonWebTokenError") {
         console.log(err);
         res.status(401).json({
             msg : 'Invalid Token'

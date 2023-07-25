@@ -1,10 +1,17 @@
 const { Product } = require ('../models/index')
+const { Op } = require("sequelize");
+const { getPagination , getPagingData } = require('../helpers/pagination')
 
 class Controller{
     static async findAllProduct ( req, res, next) {
         try {
-            const data = await Product.findAll()
-            res.status(200).json(data)
+            const { page, size, name } = req.query;
+            const condition = name ? { name: { [Op.iLike]: `%${name}%` } } : null;
+            const { limit, offset } = getPagination(page, size);
+            const product = await Product.findAndCountAll({ where: condition, limit, offset })
+            const response = getPagingData(product, page, limit);
+            // const data = await Product.findAll()
+            res.status(200).json(response)
         } catch (error) {
             next(error)
         }
