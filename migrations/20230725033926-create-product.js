@@ -27,6 +27,9 @@ module.exports = {
       weight: {
         type: Sequelize.INTEGER
       },
+      width: {
+        type: Sequelize.INTEGER
+      },
       length: {
         type: Sequelize.INTEGER
       },
